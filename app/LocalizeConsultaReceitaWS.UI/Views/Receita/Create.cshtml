@@ -1,0 +1,35 @@
+﻿@model LocalizeConsultaReceitaWS.Domain.Cliente.Cliente
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4> Cadastrar - Fornecedor</h4>
+<hr />
+
+<form asp-action="Create">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CNPJ" class="control-label"></label>
+                        <input asp-for="CNPJ" class="form-control" />
+                        <span asp-validation-for="CNPJ" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success">Confirmar</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <p>@Html.ActionLink("Voltar para a lista","Index", "Home", null, new {@class = "btn btn-primary"}) </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

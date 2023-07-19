@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LocalizeConsultaReceitaWS.Domain.Pedido.Pedido>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Lista - Consultas</h4>
+        </div>
+        <div class="col-md-6 text-end">
+            <p>@Html.ActionLink("Nova consulta", "Create", "Receita", null, new {@class = "btn btn-primary"}) </p>
+        </div>
+        <div class="col-md-6">
+            <p>@Html.ActionLink("Logout", "Index", "Login", null, new {@class = "btn btn-danger"}) </p>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CNPJ)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Resultado)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CNPJ)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button asp-action="DownloadFile" asp-route-id="@item.Resultado" title="Baixar resultado" class="btn btn-dark btn-sn">
+                                <i class="fa fa-download" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

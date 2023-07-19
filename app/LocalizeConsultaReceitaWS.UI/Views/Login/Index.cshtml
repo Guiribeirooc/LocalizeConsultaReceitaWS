@@ -1,0 +1,44 @@
+﻿@model LocalizeConsultaReceitaWS.Domain.Login.Login
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-center">
+
+    <h1>Login</h1>
+
+    <form asp-action="Index">
+        <div class="row justify-content-md-center">
+            <div class="col-md-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row mb-3">
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <button type="submit" class="btn btn-primary float-right">Entrar</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <p>@Html.ActionLink("Novo por aqui ? Crie um usuário!", "Create", "Usuario") </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
